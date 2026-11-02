@@ -5,9 +5,16 @@ import tailwindcss from "@tailwindcss/vite"
 
 // https://vite.dev/config/
 export default defineConfig({
+  clearScreen: false,
   plugins: [
     react(),
     babel({ presets: [reactCompilerPreset()] }),
     tailwindcss()
   ],
+  server: {
+    watch: {
+      usePolling: true,
+      interval: 200
+    }
+  }, 
 })
